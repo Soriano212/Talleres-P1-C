@@ -15,16 +15,17 @@ int main()
 
         for (int i = 0; curso[i] != '\0'; i++)
         {
-             if (!((curso[i] >= 65 && curso[i] <= 90) ||
-                    (curso[i] >= 97 && curso[i] <= 122) ||
-                    (curso[i] >= 48 && curso[i] <= 57) ||
-                    (curso[i] == 32))) {
-                valido = 0;
-                break;
+            if ((curso[i] >= 65 && curso[i] <= 90) ||
+                (curso[i] >= 97 && curso[i] <= 122) ||
+                (curso[i] >= 48 && curso[i] <= 57) ||
+                (curso[i] == 32))
+            {
+                valido = 1;
             }
             else
             {
-                valido = 1;
+                valido = 0;
+                break;
             }
         }
 
@@ -52,37 +53,39 @@ int main()
         }
     }
 
-    for(int i = 0; i < cant; i++)
+    for (int i = 0; i < cant; i++)
     {
         printf("Ingrese la nota del alumno %d: ", i + 1);
         scanf("%f", &notas[i]);
     }
 
-    for(int i = 0; i < cant; i++)
+    for (int i = 0; i < cant; i++)
     {
-        for(int j = 0; j < cant-1; j++){
-            if(notas[j] > notas[j+1]){
+        for (int j = 0; j < cant - 1; j++)
+        {
+            if (notas[j] > notas[j + 1])
+            {
                 float aux = notas[j];
-                notas[j] = notas[j+1];
-                notas[j+1] = aux;
+                notas[j] = notas[j + 1];
+                notas[j + 1] = aux;
             }
         }
     }
 
-    for(int i = 0; i < cant; i++)
+    for (int i = 0; i < cant; i++)
     {
         promedio += notas[i];
     }
-    
+
     promedio /= cant;
 
     printf("El curso %s tiene %d alumnos.\n", curso, cant);
     printf("Las notas de los alumnos son:\n");
-    for(int i = 0; i < cant; i++)
+    for (int i = 0; i < cant; i++)
     {
         printf("%.2f\n", notas[i]);
     }
     printf("La nota mas baja es: %.2f\n", notas[0]);
-    printf("La nota mas alta es: %.2f\n", notas[cant-1]);
+    printf("La nota mas alta es: %.2f\n", notas[cant - 1]);
     printf("El promedio del curso %s es: %.2f\n", curso, promedio);
 }
