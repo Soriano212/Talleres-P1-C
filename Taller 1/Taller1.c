@@ -7,7 +7,7 @@ int main() {
     printf("Ingrese un numero: ");
     scanf("%d", &num);
     printf("Ingrese una opcion: ");
-    scanf(" %c", &op); // Note the space before %c to consume any whitespace characters
+    scanf(" %c", &op);
 
     switch (op) {
         case 's':
